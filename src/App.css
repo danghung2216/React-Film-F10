@@ -1,0 +1,15 @@
+#root {
+  margin: 0;
+  background: rgb(16, 7, 41);
+  background: linear-gradient(
+    86deg,
+    rgba(16, 7, 41, 1) 0%,
+    rgba(17, 8, 44, 1) 100%
+  );
+
+  /* overflow-x: hidden; */
+
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
