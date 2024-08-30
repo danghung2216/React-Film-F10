@@ -1,19 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import CurrentPage from "../../Component/CurrentPage";
 import { Link } from "react-router-dom";
+import { IMovie, URL_IMG, URL_TVSHOW } from "../../Component/APIService";
 
-interface INowMovie {
-  _id: string;
-  title: string;
-  name: string;
-  original_title: string;
-  poster_path: string;
-  poster_url: string;
-  slug: string;
-}
-const URL_IMG = import.meta.env.VITE_URL_IMG;
 const TVShowMovies = () => {
-  const [tvMovies, setTvMovies] = useState<INowMovie[]>([]);
+  const [tvMovies, setTvMovies] = useState<IMovie[]>([]);
   const {
     currentPage,
     totalPages,
@@ -30,7 +21,7 @@ const TVShowMovies = () => {
           accept: "application/json",
         },
       };
-      const url = ` https://phimapi.com/v1/api/danh-sach/tv-shows?page=${currentPage}`;
+      const url = `${URL_TVSHOW}?page=${currentPage}`;
       const response = await fetch(url, options);
       const data = await response.json();
       setTvMovies(data.data.items);

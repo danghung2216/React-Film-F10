@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { IMovie, URL_IMG, URL_SIGLE } from "../../Component/APIService";
 
-const SigleMovies = () => {
+const NewsFilm = () => {
   const [sigleMovies, setSigleMovies] = useState<IMovie[]>([]);
   const {
     currentPage,
@@ -22,12 +22,13 @@ const SigleMovies = () => {
           accept: "application/json",
         },
       };
-      const url = `${URL_SIGLE}?page=${currentPage}`;
+      const url = `https://phimapi.com/danh-sach/phim-moi-cap-nhat?page=${currentPage}`;
 
       const response = await fetch(url, options);
       const data = await response.json();
-      setSigleMovies(data.data.items);
-      setTotalPages(data.data.params.pagination.totalPages);
+      setSigleMovies(data.items);
+      console.log("dsadas", data);
+      setTotalPages(data.pagination.totalPages);
     };
     fetchMovie();
   }, [currentPage]);
@@ -46,7 +47,7 @@ const SigleMovies = () => {
                     key={movie._id}
                     className={`movies-items bg-cover bg-no-repeat bg-center w-[200px] h-[300px] relative hover:scale-110 transition-transform duration-500 ease-in-out cursor-pointer mr-1 mb-10 flex-col col-auto flex-wrap`}
                     style={{
-                      backgroundImage: `url(${URL_IMG}${movie.poster_url})`,
+                      backgroundImage: `url(${movie.poster_url})`,
                     }}
                   >
                     <div className="layer-name w-full h-1/2  absolute bottom-0 left-0 z-0" />
@@ -92,4 +93,4 @@ const SigleMovies = () => {
   );
 };
 
-export default SigleMovies;
+export default NewsFilm;

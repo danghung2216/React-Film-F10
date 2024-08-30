@@ -5,15 +5,15 @@ import SigleMovies from "./Page/Sigle-Film/SingleMovie";
 import TVShowMovies from "./Page/TV-Show/TvMovies";
 import MovieDetail from "./Page/Page-Detail/MoiveDetail";
 import CartonMovies from "./Page/Catton-Film/CattonMovies";
-
-import PlayMovie from "./Page/Page-Detail/WatchMovie";
+import NewsFilm from "./Page/NewsFilm/NewFilm";
 
 export const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
+  { path: "/", element: <NewsFilm /> },
+  { path: "/home", element: <NewsFilm /> },
   { path: "/phim-bo", element: <SeriesMovies /> },
   { path: "/phim-le", element: <SigleMovies /> },
   { path: "/tv-show", element: <TVShowMovies /> },
   { path: "/phim-hoat-hinh", element: <CartonMovies /> },
   { path: "/movie/slug", element: <MovieDetail /> },
-  // { path: "/movie/slug/play", element: <PlayMovie /> },
+  { path: "/movie/slug/episode", element: <MovieDetail /> },
 ]);

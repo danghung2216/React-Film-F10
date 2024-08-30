@@ -15,27 +15,23 @@
 }
 .header-wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 2px 0;
   padding: 8px 0;
   width: 95%;
 }
-.login {
+.search {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 40%;
+  width: 30%;
 }
-.search-m {
-  display: flex;
-  justify-content: space-between;
-}
-#search {
-  border: 1px solid white;
-  border-radius: 10px;
-  width: 75%;
-}
+// .search-m {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
 .btn-change-current-page {
   border: 1px solid #2e1065;
   padding: 5px 20px;
@@ -122,6 +118,92 @@
 .btn-watch-video-i {
   background-image: linear-gradient(to right, #8360c3, #2ebf91);
 }
+// loin
+
+/* CSS which you need for blurred box */
+.container-login {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image: url(http://bit.ly/2gPLxZ4);
+  // background-color: #2e1065;
+
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.login-wraper {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(239, 241, 243, 0.916) 0px 8px 24px;
+}
+
+.blurred-box {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  background: inherit;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* .blurred-box:after {
+  content: "";
+  width: 300px;
+  height: 300px;
+  background: inherit;
+  position: absolute;
+  left: -25px;
+
+  right: 0;
+  top: -25px;
+
+  bottom: 0;
+  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05);
+  filter: blur(10px);
+} */
+
+/* Form which you dont need */
+.user-login-box {
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
+  z-index: 1;
+}
+.user-login-box > * {
+  display: inline-block;
+  width: 200px;
+}
+
+.user-icon {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+  background-size: contain;
+  background-image: url(https://pbs.twimg.com/profile_images/725321660484583424/ArQ4fM3k.jpg);
+}
+
+.user-name {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+input.user-password {
+  width: 120px;
+  height: 18px;
+  opacity: 0.4;
+  border-radius: 2px;
+  padding: 5px 15px;
+  border: 0;
+}
+
 /* web */
 
 @media (min-width: 1200px) {

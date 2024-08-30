@@ -2,20 +2,10 @@ import React, { Fragment, useEffect, useState } from "react";
 import CurrentPage from "../../Component/CurrentPage";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { IMovie, URL_IMG, URL_SERIE } from "../../Component/APIService";
 
-interface INowMovie {
-  _id: string;
-  title: string;
-  name: string;
-  original_title: string;
-  poster_path: string;
-  poster_url: string;
-  slug: string;
-}
-const URL_IMG = import.meta.env.VITE_URL_IMG;
-const URL_SERIE = import.meta.env.VITE_URL_SIGLE;
 const SeriesMovies = () => {
-  const [seriesMovies, setSeriesMovies] = useState<INowMovie[]>([]);
+  const [seriesMovies, setSeriesMovies] = useState<IMovie[]>([]);
   const {
     currentPage,
     totalPages,

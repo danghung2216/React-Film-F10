@@ -11,26 +11,24 @@ import CattonMovies from "./Page/Catton-Film/CattonMovies";
 import TVShowMovies from "./Page/TV-Show/TvMovies";
 import { Route, Router, Routes } from "react-router-dom";
 import MovieDetail from "./Page/Page-Detail/MoiveDetail";
-import PlayMovie from "./Page/Page-Detail/WatchMovie";
-
-// import TopRateMovies from "./Page/TopMovies/TopMovies";
-// import TopMovies from "./Page/TopMovies/TopMovies";
-
-function App({ movie }) {
+import NewsFilm from "./Page/NewsFilm/NewFilm";
+function App() {
   const [count, setCount] = useState(0);
 
   return (
     <Fragment>
       <HomePage />
-      <PlayMovie movie={movie} />
+
       <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<NewsFilm />} />
+        <Route path="/home" element={<NewsFilm />} />
+        {/* <Route path="/home" element={<MovieCarousel />} /> */}
         <Route path="/phim-le" element={<SigleMovies />} />
         <Route path="/phim-bo" element={<SeriesMovies />} />
         <Route path="/tv-show" element={<TVShowMovies />} />
         <Route path="/phim-hoat-hinh" element={<CattonMovies />} />
         <Route path="/movie/:slugMovie" element={<MovieDetail />} />
-        {/* <Route path="/movie/:slugMovie/play" element={<MovieDetail />} /> */}
+        <Route path="/movies/:slugMovie/:episode" element={<MovieDetail />} />
       </Routes>
     </Fragment>
   );

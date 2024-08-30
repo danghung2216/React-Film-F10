@@ -1,27 +1,14 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { MovieDetails, URL_DETAIL } from "../../Component/APIService";
 import PlayMovie from "./WatchMovie";
-
-const URL_IMG = import.meta.env.VITE_URL_IMG;
-const DETAIL_URL = "https://phimapi.com/phim/";
-
-interface MovieDetails {
-  slug: string;
+interface IEpsidoe {
+  id: number;
+  server_data: [];
+  filename: string;
+  link_embed: string;
+  link_m3u8: string;
   name: string;
-  title: string;
-  original_title: string;
-  poster_url: string;
-  description: string;
-  time: string;
-  episode_total: number;
-  quality: string;
-  lang: string;
-  country: { name: string }[];
-  type: string;
-  year: number;
-  content: string;
-  episode_current: string;
-  episodes: { server_data: [] };
 }
 
 const MovieDetail = () => {
@@ -29,6 +16,7 @@ const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedEpisode, setSelectedEpisode] = useState(false);
+  const [movieEpisode, setMovieEpisode] = useState<IEpsidoe | null>(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -40,12 +28,17 @@ const MovieDetail = () => {
             accept: "application/json",
           },
         };
-        const url = `${DETAIL_URL}${slugMovie}`;
+        const url = `${URL_DETAIL}${slugMovie}`;
         const response = await fetch(url, options);
         const data = await response.json();
+        console.log(data);
+
+        setMovieEpisode(data.episodes[0].server_data[0]);
+        console.log("eeeel", movieEpisode);
+        console.log("bas", data);
 
         setMovieDetails(data.movie);
-        console.log(movieDetails);
+        console.log("jjjjj", movieDetails);
       } catch (error) {
         console.error("Error fetching movie details:", error);
       } finally {
@@ -116,9 +109,7 @@ const MovieDetail = () => {
             <h2 className="text-3xl">Mô tả:</h2>
             <p>{movieDetails.content}</p>
           </div>
-          {selectedEpisode ? (
-            <PlayMovie movie={movieDetails.episodes} />
-          ) : undefined}
+          <PlayMovie value={movieEpisode} />
         </div>
       ) : (
         <div>Movie not found.</div>
