@@ -36,6 +36,7 @@ const SeriesMovies = () => {
     <Fragment>
       <div className="popular-container">
         <div className="movies-wrap my-10 px-10 max-w-full ">
+          <h1 className="text-white font-bold text-2xl text-center">Phim Bộ</h1>
           {seriesMovies.length > 0 && (
             <div className="movie-container">
               <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-between">

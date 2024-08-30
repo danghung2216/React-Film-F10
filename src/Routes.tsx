@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./Page/HomePage/HomePage";
+import HomePage from "./Page/Header/Header";
 import SeriesMovies from "./Page/Series-Film/SeriesMovies";
 import SigleMovies from "./Page/Sigle-Film/SingleMovie";
 import TVShowMovies from "./Page/TV-Show/TvMovies";
@@ -8,7 +8,6 @@ import CartonMovies from "./Page/Catton-Film/CattonMovies";
 import NewsFilm from "./Page/NewsFilm/NewFilm";
 
 export const router = createBrowserRouter([
-  { path: "/", element: <NewsFilm /> },
   { path: "/home", element: <NewsFilm /> },
   { path: "/phim-bo", element: <SeriesMovies /> },
   { path: "/phim-le", element: <SigleMovies /> },

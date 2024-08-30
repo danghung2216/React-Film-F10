@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
 import "../SASS/styles.scss";
 import { NavLink } from "react-router-dom";
+import NewsFilm from "../NewsFilm/NewFilm";
 
-const HomePage = () => {
+const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -43,9 +44,10 @@ const HomePage = () => {
         <NavLink to="/tv-show">TV Show</NavLink>
         <NavLink to="/phim-hoat-hinh">Hoạt Hình</NavLink>
       </div>
+
       {/* <div className="home-movie h-screen"></div> */}
     </Fragment>
   );
 };
 
-export default HomePage;
+export default Header;

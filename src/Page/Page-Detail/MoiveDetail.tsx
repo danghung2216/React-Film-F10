@@ -33,7 +33,7 @@ const MovieDetail = () => {
         const data = await response.json();
         console.log(data);
 
-        setMovieEpisode(data.episodes[0].server_data[0]);
+        setMovieEpisode(data.episodes[0].server_data);
         console.log("eeeel", movieEpisode);
         console.log("bas", data);
 

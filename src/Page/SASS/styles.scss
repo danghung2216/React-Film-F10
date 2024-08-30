@@ -3,6 +3,7 @@
   padding: 0;
   background-color: #2e1065;
   width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
 }
@@ -23,7 +24,7 @@
 }
 .search {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 30%;
 }

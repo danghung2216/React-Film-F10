@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 
 import "./App.css";
-import HomePage from "./Page/HomePage/HomePage";
+import HomePage from "./Page/Header/Header";
 
 import "./Page/SASS/styles.scss";
 
@@ -12,17 +12,18 @@ import TVShowMovies from "./Page/TV-Show/TvMovies";
 import { Route, Router, Routes } from "react-router-dom";
 import MovieDetail from "./Page/Page-Detail/MoiveDetail";
 import NewsFilm from "./Page/NewsFilm/NewFilm";
+import Header from "./Page/Header/Header";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <Fragment>
-      <HomePage />
+      <Header />
 
       <Routes>
         <Route path="/" element={<NewsFilm />} />
         <Route path="/home" element={<NewsFilm />} />
-        {/* <Route path="/home" element={<MovieCarousel />} /> */}
+
         <Route path="/phim-le" element={<SigleMovies />} />
         <Route path="/phim-bo" element={<SeriesMovies />} />
         <Route path="/tv-show" element={<TVShowMovies />} />
