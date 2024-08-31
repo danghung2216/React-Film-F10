@@ -9,7 +9,7 @@ export interface IMovie {
   title: string;
   name: string;
   original_title: string;
-  poster_path: string;
+  thumb_url: string;
   poster_url: string;
   slug: string;
 }

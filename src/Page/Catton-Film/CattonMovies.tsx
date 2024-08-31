@@ -3,6 +3,7 @@ import CurrentPage from "../../Component/CurrentPage";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { IMovie, URL_CARTON, URL_IMG } from "../../Component/APIService";
+import Footer from "../Header/footer";
 
 const CartonMovies = () => {
   const [cartonMovie, setCartonMovie] = useState<IMovie[]>([]);
@@ -35,13 +36,13 @@ const CartonMovies = () => {
   return (
     <Fragment>
       <div className="carton-container">
-        <div className="movies-wrap my-10 px-10 max-w-full ">
+        <div className="movies-wrap my-10 pt-10 max-w-full ">
           <h1 className="text-white font-bold text-2xl text-center">
             Phim Hoạt Hình
           </h1>
           {cartonMovie.length > 0 && (
             <div className="movie-container">
-              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-between">
+              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-center gap-3">
                 {cartonMovie.map((movie, index) => (
                   <Link
                     to={`/movie/${movie.slug}`}
@@ -90,6 +91,7 @@ const CartonMovies = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

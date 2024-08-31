@@ -3,6 +3,7 @@ import CurrentPage from "../../Component/CurrentPage";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { IMovie, URL_IMG, URL_SIGLE } from "../../Component/APIService";
+import Footer from "../Header/footer";
 
 const SigleMovies = () => {
   const [sigleMovies, setSigleMovies] = useState<IMovie[]>([]);
@@ -40,7 +41,7 @@ const SigleMovies = () => {
           <h1 className="text-white font-bold text-2xl text-center">Phim Lẻ</h1>
           {sigleMovies.length > 0 && (
             <div className="movie-container">
-              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-between">
+              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-center gap-3">
                 {sigleMovies.map((movie, index) => (
                   <Link
                     to={`/movie/${movie.slug}`}
@@ -89,6 +90,7 @@ const SigleMovies = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

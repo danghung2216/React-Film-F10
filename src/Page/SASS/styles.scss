@@ -2,7 +2,7 @@
   color: white;
   padding: 0;
   background-color: #2e1065;
-  width: 100%;
+  width: auto;
   height: auto;
   display: flex;
   justify-content: center;
@@ -20,13 +20,37 @@
   align-items: center;
   margin: 2px 0;
   padding: 8px 0;
-  width: 95%;
+  // width: 95%;
+}
+.header-title {
+  font-size: 30px;
+  background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .search {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 30%;
+}
+.search button {
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.search input {
+  padding: 5px 10px;
+}
+.open-menu {
+  z-index: 1000;
+  background-color: #140530;
+}
+.menu-link {
+  color: white;
+  padding: 10px 0;
+  z-index: 1000;
+  padding-left: 5px;
 }
 // .search-m {
 //   display: flex;
@@ -56,6 +80,9 @@
 .layer-name {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
+.movies-wrap {
+  // background-color: #2e1065;
+}
 .movie-poster {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
@@ -78,12 +105,15 @@
 }
 
 .topnav a {
-  /* float: left; */
   color: #f2f2f2;
   text-align: center;
   padding: 20px 20px;
   text-decoration: none;
   font-size: 17px;
+  border-right: 2px solid white;
+}
+.topnav a :nth-child(1) {
+  border-left: 2px solid white;
 }
 
 /* Change the color of links on hover */
@@ -96,7 +126,6 @@
 .topnav a.active {
   background-color: #04aa6d;
   color: white;
-  tex-decoration: black;
 }
 .movie-detail-container {
   margin: 0;
@@ -170,39 +199,42 @@
 } */
 
 /* Form which you dont need */
-.user-login-box {
-  position: relative;
-  margin-top: 50px;
+
+.footer-container {
+  // position: fixed;
+  // bottom: 0;
+  // left: 0;
+  width: 100%;
+  color: #f2f2f2;
+  background-color: rgb(16, 7, 41);
+
   text-align: center;
-  z-index: 1;
-}
-.user-login-box > * {
-  display: inline-block;
-  width: 200px;
 }
 
-.user-icon {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  border-radius: 50%;
-  background-size: contain;
-  background-image: url(https://pbs.twimg.com/profile_images/725321660484583424/ArQ4fM3k.jpg);
+.contact-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  border: 2px solid #140530;
 }
 
-.user-name {
-  margin-top: 15px;
-  margin-bottom: 15px;
+.popup-zalo {
+  text-align: center;
+}
+
+.popup-zalo p {
   color: white;
-}
-
-input.user-password {
-  width: 120px;
-  height: 18px;
-  opacity: 0.4;
-  border-radius: 2px;
-  padding: 5px 15px;
-  border: 0;
 }
 
 /* web */
@@ -232,10 +264,72 @@ input.user-password {
 
 /* Mobile (small screens) */
 @media (max-width: 767px) {
+  #root {
+    height: 100%;
+    width: auto;
+  }
   .movie-container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+
   .container {
     width: 100%;
+  }
+
+  .movie-detail-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .movies-items-wrap {
+    height: auto;
+  }
+
+  .detail-movie-epidose {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-right {
+    grid-column: 1;
+    grid-row: 2;
+    width: 80%;
+    height: 80%;
+  }
+
+  .detai-info-left {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    height: 80%;
+  }
+  .header-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 2px 0;
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+  }
+  .header-title {
+    font-size: 20px;
+  }
+  .topnav a {
+    border: none;
   }
 }

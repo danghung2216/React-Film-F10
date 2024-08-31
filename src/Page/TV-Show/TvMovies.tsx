@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import CurrentPage from "../../Component/CurrentPage";
 import { Link } from "react-router-dom";
 import { IMovie, URL_IMG, URL_TVSHOW } from "../../Component/APIService";
+import Footer from "../Header/footer";
 
 const TVShowMovies = () => {
   const [tvMovies, setTvMovies] = useState<IMovie[]>([]);
@@ -38,7 +39,7 @@ const TVShowMovies = () => {
           <h1 className="text-white font-bold text-2xl text-center">TV Show</h1>
           {tvMovies.length > 0 && (
             <div className="movie-container">
-              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-between">
+              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-center gap-3">
                 {tvMovies.map((movie, index) => (
                   <Link
                     to={`/movie/${movie.slug}`}
@@ -87,6 +88,7 @@ const TVShowMovies = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

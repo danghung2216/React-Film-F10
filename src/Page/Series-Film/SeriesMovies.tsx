@@ -3,6 +3,7 @@ import CurrentPage from "../../Component/CurrentPage";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { IMovie, URL_IMG, URL_SERIE } from "../../Component/APIService";
+import Footer from "../Header/footer";
 
 const SeriesMovies = () => {
   const [seriesMovies, setSeriesMovies] = useState<IMovie[]>([]);
@@ -35,11 +36,11 @@ const SeriesMovies = () => {
   return (
     <Fragment>
       <div className="popular-container">
-        <div className="movies-wrap my-10 px-10 max-w-full ">
+        <div className="movies-wrap my-10 px-10 max-w-full bg-violet-900 ">
           <h1 className="text-white font-bold text-2xl text-center">Phim Bộ</h1>
           {seriesMovies.length > 0 && (
             <div className="movie-container">
-              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-between">
+              <div className="movies-wrap my-10 px-10 max-w-full flex flex-wrap justify-center gap-3">
                 {seriesMovies.map((movie, index) => (
                   <Link
                     to={`/movie/${movie.slug}`}
@@ -88,6 +89,7 @@ const SeriesMovies = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };
