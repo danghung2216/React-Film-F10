@@ -53,6 +53,7 @@ const PlayMovie = ({ value }) => {
               playing
               controls
               autoplay
+              dowload
             />
           )}
           {/* <div className="filename text-white font-bold m-2 p-2">
