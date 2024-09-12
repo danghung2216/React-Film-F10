@@ -14,7 +14,9 @@ import MovieDetail from "./Page/Page-Detail/MoiveDetail";
 import NewsFilm from "./Page/NewsFilm/NewFilm";
 import Header from "./Page/Header/Header";
 import SearchMovie from "./Component/MovieSearch";
-import Footer from "./Page/Header/footer";
+// import Footer from "./Page/Header/Footer";
+import LoginPage from "./Page/Login-Sigup/Loginpage";
+import GoogleLogin from "./Page/Login-Sigup/GoogleLogin";
 
 function App() {
   const [isSearching, setIsSearching] = useState(false);
@@ -27,6 +29,8 @@ function App() {
 
   return (
     <Fragment>
+      {/* <GoogleLogin /> */}
+      {/* <LoginPage /> */}
       <Header onSearch={handleSearch} />
       {isSearching && searchValue ? (
         <SearchMovie searchValue={searchValue} />
@@ -36,13 +40,13 @@ function App() {
         <Route path="/" element={<NewsFilm />} />
         <Route path="/seach:slug" element={<NewsFilm />} />
         <Route path="/home" element={<NewsFilm />} />
-
         <Route path="/phim-le" element={<SigleMovies />} />
         <Route path="/phim-bo" element={<SeriesMovies />} />
         <Route path="/tv-show" element={<TVShowMovies />} />
         <Route path="/phim-hoat-hinh" element={<CattonMovies />} />
         <Route path="/movie/:slugMovie" element={<MovieDetail />} />
         <Route path="/movies/:slugMovie/:episode" element={<MovieDetail />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Fragment>
   );

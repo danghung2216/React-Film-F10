@@ -6,6 +6,7 @@ import TVShowMovies from "./Page/TV-Show/TvMovies";
 import MovieDetail from "./Page/Page-Detail/MoiveDetail";
 import CartonMovies from "./Page/Catton-Film/CattonMovies";
 import NewsFilm from "./Page/NewsFilm/NewFilm";
+import LoginPage from "./Page/Login-Sigup/Loginpage";
 
 export const router = createBrowserRouter([
   { path: "/home", element: <NewsFilm /> },
@@ -15,4 +16,5 @@ export const router = createBrowserRouter([
   { path: "/phim-hoat-hinh", element: <CartonMovies /> },
   { path: "/movie/slug", element: <MovieDetail /> },
   { path: "/movie/slug/episode", element: <MovieDetail /> },
+  { path: "/login", element: <LoginPage /> },
 ]);

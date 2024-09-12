@@ -1,16 +1,17 @@
 import { Fragment, useEffect, useState } from "react";
 import "../SASS/styles.scss";
 import { Link, NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import Footer from "./footer";
+
 interface HeaderProps {
   onSearch: (searchValue: string) => void;
+  isLoggedIn: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ onSearch }) => {
+const Header: React.FC<HeaderProps> = ({ onSearch, isLoggedIn }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+
   const handleSearch = () => {
     onSearch(searchValue);
     setSearchValue("");
@@ -30,6 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
   const handleOpenMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  // sjd
 
   return (
     <Fragment>
@@ -58,6 +60,16 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
               onChange={handleInputChange}
             />
           </div>
+          {isLoggedIn ? (
+            <div className="login-sigup">
+              <img src="" alt="" />
+            </div>
+          ) : (
+            <div className="login-sigup">
+              <Link to={"/login"}>Đăng Nhập</Link>
+              <Link to={"/login"}>Đăng Ký</Link>
+            </div>
+          )}
         </div>
       </div>
       {isMenuOpen && (
@@ -89,14 +101,8 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
         <NavLink to="/tv-show">TV Show</NavLink>
         <NavLink to="/phim-hoat-hinh">Hoạt Hình</NavLink>
       </div>
-      {/* <SearchMovie searchValue={searchValue} /> */}
-
-      {/* <div className="home-movie h-screen"></div> */}
     </Fragment>
   );
 };
-// Header.propTypes = {
-//   onSearch: PropTypes.func.isRequired,
-// };
 
 export default Header;

@@ -3,7 +3,7 @@ import CurrentPage from "../../Component/CurrentPage";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { IMovie, URL_IMG, URL_SIGLE } from "../../Component/APIService";
-import Footer from "../Header/footer";
+import Footer from "../Header/Footer";
 
 const NewsFilm = () => {
   const [movieUpdate, setMovieUpdate] = useState<IMovie[]>([]);

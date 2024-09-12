@@ -123,6 +123,8 @@ const MovieDetail = () => {
           </div>
         </div>
       ) : (
+        // comment
+
         <div>Movie not found.</div>
       )}
       <Footer />

@@ -7,18 +7,9 @@ const PlayMovie = ({ value }) => {
   const { slugMovie } = useParams();
   const [url, setUrl] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState(null);
-  // const [nameMovie, setNameMovie] = useState("");
 
   console.log("val", url);
-  // useEffect(() => {
-  //   if (value && value.length > 0) {
-  //     const selectUrl = value.find((episode, index) => episode.index === index);
-  //     if (selectUrl) {
-  //       setUrl(selectUrl.link_m3u8);
-  //     }
-  //   }
-  // }, [value, slugMovie]);
-  // console.log("slet", url);
+
   useEffect(() => {
     if (value && value.length > 0) {
       const selectUrl = value[0];

@@ -1,3 +1,330 @@
+.container {
+  color: white;
+  padding: 0;
+  background-color: #2e1065;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
 
+.fix-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Adjust as needed */
+}
 
+.header-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2px 0;
+  padding: 8px 0;
+}
 
+.header-title {
+  font-size: 30px;
+  background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+
+.search button {
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.search input {
+  padding: 5px 10px;
+}
+
+.open-menu {
+  z-index: 1000;
+  background-color: #140530;
+}
+
+.menu-link {
+  color: white;
+  padding: 10px 0;
+  z-index: 1000;
+  padding-left: 5px;
+}
+
+.btn-change-current-page {
+  border: 1px solid #2e1065;
+  padding: 5px 20px;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.644) 0px -23px 25px 0px inset, rgba(234, 233, 233, 0.767) 0px -36px 30px 0px inset, rgba(255, 255, 255, 0.1) 0px -79px 40px 0px inset, rgba(255, 255, 255, 0.06) 0px 2px 1px, rgba(251, 249, 249, 0.363) 0px 4px 2px, rgba(243, 240, 240, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies-items {
+  box-shadow: rgba(213, 213, 223, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.layer-name {
+  background-image: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.movie-poster {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.btn-watch-now {
+  display: none;
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+  color: white;
+}
+
+.movies-items:hover .btn-watch-now {
+  display: block;
+}
+
+.topnav {
+  background-color: #2e1065;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  border-right: 2px solid white;
+}
+
+.topnav a :nth-child(1) {
+  border-left: 2px solid white;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.movie-detail-container {
+  margin: 0;
+  display: flex;
+  background-color: #2e1065;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies-items-wrap {
+  justify-content: center;
+}
+
+.movie-details-wrap p {
+  padding-top: 15px;
+  border-bottom: 1px solid rgb(105, 30, 209);
+  justify-content: center;
+}
+
+.detai-info-left {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-watch-video-i {
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+}
+
+/* CSS which you need for blurred box */
+.container-login {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image: url(http://bit.ly/2gPLxZ4);
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.login-wraper {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: rgba(239, 241, 243, 0.916) 0px 8px 24px;
+}
+
+.blurred-box {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  background: inherit;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* .blurred-box:after {
+  content: "";
+  width: 300px;
+  height: 300px;
+  background: inherit;
+  position: absolute;
+  left: -25px;
+
+  right: 0;
+  top: -25px;
+
+  bottom: 0;
+  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05);
+  filter: blur(10px);
+} */
+/* Form which you dont need */
+.footer-container {
+  width: 100%;
+  color: #f2f2f2;
+  background-color: rgb(16, 7, 41);
+  text-align: center;
+}
+
+.contact-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  border: 2px solid #140530;
+}
+
+.popup-zalo {
+  text-align: center;
+}
+
+.popup-zalo p {
+  color: white;
+}
+
+/* web */
+@media (min-width: 1200px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .container {
+    width: 100%;
+    z-index: 2px;
+  }
+  .header-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2px 0;
+    padding: 8px 0;
+    width: 100%;
+  }
+}
+/* Tablet(medium screens) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .header-wrap {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+  }
+}
+/* Mobile (small screens) */
+@media (max-width: 767px) {
+  #root {
+    height: 100%;
+    width: auto;
+  }
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .container {
+    width: 100%;
+  }
+  .movie-detail-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  .movies-items-wrap {
+    height: auto;
+  }
+  .detail-movie-epidose {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-right {
+    grid-column: 1;
+    grid-row: 2;
+    width: 80%;
+    height: 80%;
+  }
+  .detai-info-left {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    height: 80%;
+  }
+  .header-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 2px 0;
+    padding: 8px 0;
+    width: 100%;
+  }
+  .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+  }
+  .header-title {
+    font-size: 20px;
+  }
+  .topnav a {
+    border: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
