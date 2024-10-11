@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,11 +13,12 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.0.2",
-    "@mui/material": "^6.0.2",
+    "@mui/material": "^6.1.2",
     "@mui/styled-engine-sc": "^6.0.2",
     "@react-icons/all-files": "^4.1.0",
     "@react-oauth/google": "^0.12.1",
     "axios": "^1.7.5",
+    "gh-pages": "^6.2.0",
     "jwt-decode": "^4.0.0",
     "node-fetch": "^2.7.0",
     "prop-types": "^15.8.1",

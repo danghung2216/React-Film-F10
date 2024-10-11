@@ -1,6 +1,16 @@
 import { Fragment, useEffect, useState } from "react";
 import "../SASS/styles.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import Divider from "@mui/material/Divider";
+import Menu from "@mui/material/Menu";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import Logout from "@mui/icons-material/Logout";
+import { MenuItem } from "@mui/material";
+import React from "react";
 
 interface HeaderProps {
   onSearch: (searchValue: string) => void;
@@ -11,6 +21,30 @@ const Header: React.FC<HeaderProps> = ({ onSearch, isLoggedIn }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
+
+  const renderAccount = () => {
+    const storedValueAcc = window.sessionStorage.getItem("username");
+    const storedValueGG = window.sessionStorage.getItem("usernameGG");
+
+    if (storedValueAcc) {
+      return `Hi, ${storedValueAcc}`;
+    } else if (storedValueGG) {
+      return `Hi, ${storedValueGG}`;
+    }
+  };
+
+  const handleLogOut = () => {
+    const isConfirm = confirm("Do you want to log out?");
+    if (isConfirm) {
+      window.sessionStorage.clear();
+      window.location.reload();
+    }
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   const handleSearch = () => {
     onSearch(searchValue);
@@ -18,6 +52,14 @@ const Header: React.FC<HeaderProps> = ({ onSearch, isLoggedIn }) => {
   };
   const handleInputChange = (e: any) => {
     setSearchValue(e.target.value);
+  };
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -60,16 +102,88 @@ const Header: React.FC<HeaderProps> = ({ onSearch, isLoggedIn }) => {
               onChange={handleInputChange}
             />
           </div>
-          {isLoggedIn ? (
-            <div className="login-sigup">
-              <img src="" alt="" />
-            </div>
-          ) : (
-            <div className="login-sigup">
-              <Link to={"/login"}>Đăng Nhập</Link>
-              <Link to={"/login"}>Đăng Ký</Link>
-            </div>
-          )}
+          {/* {isLoggedIn ? ( */}
+          <div className="d-flex flex-row align-items-center">
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              <Tooltip title="Account settings">
+                <IconButton
+                  onClick={handleClick}
+                  size="small"
+                  sx={{ ml: 2 }}
+                  aria-controls={open ? "account-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                >
+                  <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+                </IconButton>
+              </Tooltip>
+            </Box>
+            <Menu
+              anchorEl={anchorEl}
+              id="account-menu"
+              open={open}
+              onClose={handleClose}
+              onClick={handleClose}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&::before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              <MenuItem onClick={handleClose}>
+                <Avatar />
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={handleLogin}>
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Log in
+              </MenuItem>
+              <MenuItem onClick={handleLogOut}>
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Log out
+              </MenuItem>
+            </Menu>
+            {renderAccount()}
+          </div>
+          {/* // ) : (
+          //   <div className="login-sigup">
+          //     <Link to={"/login"}>Đăng Nhập</Link>
+          //     <Link to={"/login"}>Đăng Ký</Link>
+          //   </div>
+          // )} */}
         </div>
       </div>
       {isMenuOpen && (

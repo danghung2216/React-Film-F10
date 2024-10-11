@@ -9,6 +9,8 @@ import {
   FaEye,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import instance from "../..";
 
 export interface User {
   username: string;
@@ -25,7 +27,7 @@ export interface UserInfo {
   address: string;
 }
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -36,10 +38,22 @@ const LoginPage = () => {
     setIsOpenGG(true);
   };
 
-  const handleSubmit = () => {
-    alert("Submit successfull");
-    setPassword("");
-    navigate("/home");
+  const handleSubmit = (user: User) => {
+    (async () => {
+      try {
+        const { data } = await instance.post(`/login`, user);
+        if (data.user) {
+          sessionStorage.setItem("accessToken", data.accessToken);
+          sessionStorage.setItem("username", data.user.username);
+          toast("Login successfully! Welcome to Loop Store!");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        }
+      } catch (error) {
+        alert("Please enter correct email, username and password.");
+      }
+    })();
   };
 
   return (
