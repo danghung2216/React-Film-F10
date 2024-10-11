@@ -9,7 +9,7 @@ const LoginWithGG = () => {
   return (
     <Fragment>
       <div className="w-25 mx-auto mt-5 pt-5">
-        <GoogleOAuthProvider clientId="209516062947-knrdrns0bfcu90kic8f0o58bofs354ha.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="418841919482-7cm32vjam0785ee6r2e61t6f61dgrfo5.apps.googleusercontent.com">
           <GoogleLogin
             onSuccess={(credentialResponse: CredentialResponse) => {
               const decoded = jwtDecode(credentialResponse.credential);
